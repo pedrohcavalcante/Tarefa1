@@ -9,8 +9,7 @@ import android.view.View;
 import android.app.Activity;
 import android.widget.Button;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
+import android.widget.Toast;
 
 
 public class Principal extends Activity{
@@ -53,10 +52,15 @@ public class Principal extends Activity{
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 22){
-          valorRetornado = Integer.parseInt(data.getStringExtra("valorRetornado"));
-          //TextView visualizar = findViewById(R.id.valorq3);
-          //visualizar.setText(data.getStringExtra("valorRetornado"));
-          botaoq3.setText(data.getStringExtra("valorRetornado"));
+          try{
+              valorRetornado = Integer.parseInt(data.getStringExtra("valorRetornado"));
+              botaoq3.setText(data.getStringExtra("valorRetornado"));
+          } catch (NullPointerException npe){
+              valorRetornado = 0;
+              botaoq3.setText(Integer.toString(valorRetornado));
+              Toast.makeText(this,"Erro",Toast.LENGTH_LONG).show();
+          }
+
         }
     }
 

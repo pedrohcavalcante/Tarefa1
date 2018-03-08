@@ -16,12 +16,15 @@ public class questao3 extends Activity {
 
         Intent questao3 = getIntent();
         Bundle parametros  = questao3.getExtras();
-        valor = Integer.parseInt(parametros.getString("valorIndo"));
+        try{
+            valor = Integer.parseInt(parametros.getString("valorIndo"));
+        }catch (NullPointerException npe){
 
-        //TextView texto = findViewById(R.id.texto);
+        }
+
         Button botao = findViewById(R.id.button4);
         botao.setText(parametros.getString("valorIndo"));
-        //texto.setText(parametros.getString("valorIndo"));
+
     }
 
     public void funcaoVoltar(View view){
