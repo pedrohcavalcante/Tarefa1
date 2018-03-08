@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class questao3 extends Activity {
     int valor;
@@ -19,7 +20,7 @@ public class questao3 extends Activity {
         try{
             valor = Integer.parseInt(parametros.getString("valorIndo"));
         }catch (NullPointerException npe){
-
+            Toast.makeText(this,"Erro",Toast.LENGTH_LONG).show();
         }
 
         Button botao = findViewById(R.id.button4);
